@@ -2,13 +2,16 @@
   lib,
   pkgs,
   config,
+  options,
   ...
 }: {
 
   config = {
     vim = {
 
-      statusline = {
+      statusline = let
+        activeZ = options.vim.statusline.lualine.activeSection.z.default ;
+      in {
         lualine = {
           enable = true;
 
@@ -18,14 +21,24 @@
           #   ''
           # ];
           #
-          # activeSection.c = [
-          #   ''
-          #   {
-          #     'filename',
-          #     path = 1,
-          #   }
-          #   ''
-          # ];
+          activeSection.c = [
+            ''
+            {
+              'diff',
+            }
+            ''
+          ];
+
+          activeSection.z = activeZ 
+            ++
+          [
+            ''
+            {
+              'encoding',
+            }
+            ''
+          ]
+          ;
 
           inactiveSection.c = [
             ''
