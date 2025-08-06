@@ -21,6 +21,8 @@
               hide_hidden = false;
             };
           };
+
+          git_status_async = true;
         };
       };
 

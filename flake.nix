@@ -24,13 +24,6 @@
         # You may browse available options for nvf on the online manual. Please see
         # <https://notashelf.github.io/nvf/options.html>
         config.vim = {
-
-          # utility = {
-          #   oil-nvim = {
-          #     enable = true;
-          #   };
-          # };
-
         };
       };
 
