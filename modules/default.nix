@@ -10,6 +10,7 @@
 
   imports = [
     ./common.nix
+    ./clipboard.nix
 
     ./lsp
     ./lualine.nix
