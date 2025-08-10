@@ -12,6 +12,8 @@
     ./common.nix
     ./clipboard.nix
 
+    ./autopairs.nix
+
     ./lsp
     ./lualine.nix
 
