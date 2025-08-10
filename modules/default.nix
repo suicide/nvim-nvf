@@ -21,6 +21,8 @@
 
     ./neotree.nix
     ./undotree.nix
+
+    ./telescope.nix
   ];
 
   config = {
