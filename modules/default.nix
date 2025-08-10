@@ -15,7 +15,7 @@
     ./autopairs.nix
 
     ./lsp
-    ./lualine.nix
+    ./treesitter.nix
 
     ./quickfixlist.nix
 
@@ -23,6 +23,7 @@
     ./undotree.nix
 
     ./telescope.nix
+    ./lualine.nix
   ];
 
   config = {
