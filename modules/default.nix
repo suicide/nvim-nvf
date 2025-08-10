@@ -14,6 +14,8 @@
     ./lsp
     ./lualine.nix
 
+    ./quickfixlist.nix
+
     ./neotree.nix
     ./undotree.nix
   ];
