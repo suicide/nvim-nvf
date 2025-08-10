@@ -16,7 +16,7 @@
             path_display = ["truncate"];
           };
 
-          pickers.find_files.find_command = ["${pkgs.fd}/bin/fd" "--hidden"];
+          pickers.find_files.find_command = ["${pkgs.fd}/bin/fd" "-tf" "--hidden"];
         };
 
         extensions = [
