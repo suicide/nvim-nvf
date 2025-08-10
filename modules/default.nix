@@ -20,6 +20,7 @@
     ./quickfixlist.nix
 
     ./neotree.nix
+    ./gitsigns.nix
     ./undotree.nix
 
     ./telescope.nix
