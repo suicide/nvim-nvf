@@ -9,6 +9,8 @@
 
 
   imports = [
+    ./common.nix
+
     ./lsp
     ./lualine.nix
 
