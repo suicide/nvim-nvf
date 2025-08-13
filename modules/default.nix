@@ -13,6 +13,7 @@
     ./clipboard.nix
 
     ./autopairs.nix
+    ./comments.nix
 
     ./lsp
     ./treesitter.nix
