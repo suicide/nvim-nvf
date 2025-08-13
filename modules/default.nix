@@ -16,6 +16,7 @@
 
     ./lsp
     ./treesitter.nix
+    ./autocomplete.nix
 
     ./quickfixlist.nix
 
