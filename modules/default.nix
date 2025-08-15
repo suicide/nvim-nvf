@@ -18,6 +18,7 @@
     ./lsp
     ./treesitter.nix
     ./autocomplete.nix
+    ./format.nix
 
     ./quickfixlist.nix
 

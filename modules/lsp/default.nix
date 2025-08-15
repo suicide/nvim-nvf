@@ -4,7 +4,28 @@
   config,
   ...
 }: {
-  imports = [];
+  imports = [
+    ./nix.nix
+
+    ./markdown.nix
+    ./yaml.nix
+
+    ./bash.nix
+
+    ./css.nix
+    ./html.nix
+    ./ts.nix
+    ./svelte.nix
+    ./tailwind.nix
+
+    ./lua.nix
+    ./java.nix
+    ./rust.nix
+
+    ./helm.nix
+    ./terraform.nix
+  ];
+
   config = {
     vim = {
       lsp = {
@@ -17,8 +38,14 @@
         # API provided by Neovim > 0.11
         servers = {};
 
+        formatOnSave = false;
+
         mappings = {
-          format = "<leader>F";
+          # format = "<leader>F"; # use conform instead
+
+          nextDiagnostic = "}}";
+          previousDiagnostic = "{{";
+          openDiagnosticFloat = "<leader>e";
         };
       };
 
@@ -30,11 +57,6 @@
         enableFormat = true;
         enableTreesitter = true;
         enableExtraDiagnostics = true;
-
-        # Nix language and diagnostics.
-        nix = {
-          enable = true;
-        };
       };
     };
   };
