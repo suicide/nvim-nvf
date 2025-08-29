@@ -15,6 +15,8 @@
     ./autopairs.nix
     ./comments.nix
 
+    ./assistant.nix
+
     ./lsp
     ./treesitter.nix
     ./autocomplete.nix
