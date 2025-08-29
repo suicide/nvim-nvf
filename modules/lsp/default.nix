@@ -41,7 +41,7 @@
         formatOnSave = false;
 
         mappings = {
-          # format = "<leader>F"; # use conform instead
+          # format = "<leader>F"; # use conform instead, but have nvf default anyway
 
           nextDiagnostic = "}}";
           previousDiagnostic = "{{";
