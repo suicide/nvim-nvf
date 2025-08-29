@@ -21,6 +21,7 @@
     ./lua.nix
     ./java.nix
     ./rust.nix
+    ./go.nix
 
     ./helm.nix
     ./terraform.nix
