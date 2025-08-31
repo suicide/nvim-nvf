@@ -46,7 +46,7 @@
       # as an input. You may run those packages with 'nix run .#<package>'
       # default = self.packages.${system}.neovim;
       default = nvim;
-      # neovimConfigured = neovimConfigured.neovim;
+      neovimConfigured = neovimConfigured.neovim;
     });
   };
 
