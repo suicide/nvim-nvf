@@ -8,12 +8,12 @@
 
   config = {
     vim = {
+      utility.undotree = {
+        enable = true;
+      };
+
       lazy.plugins = {
         undotree = {
-          package = pkgs.vimPlugins.undotree;
-
-          # load on event
-          event = ["BufEnter"];
 
           after = ''
             vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
