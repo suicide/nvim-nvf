@@ -22,6 +22,7 @@
     ./java.nix
     ./rust.nix
     ./go.nix
+    ./solidity.nix
 
     ./helm.nix
     ./terraform.nix

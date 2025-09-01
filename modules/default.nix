@@ -18,6 +18,7 @@
     ./assistant.nix
 
     ./lsp
+    ./diagnostics.nix
     ./treesitter.nix
     ./autocomplete.nix
     ./format.nix
