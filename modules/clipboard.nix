@@ -14,7 +14,7 @@
         registers = "unnamed,unnamedplus";
 
         providers = {
-          wl-copy = {
+          wl-copy = lib.mkIf pkgs.stdenv.isLinux {
             enable = true;
           };
         };

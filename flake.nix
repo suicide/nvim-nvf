@@ -11,7 +11,10 @@
   } @ inputs: let
     # An abstraction over systems to easily provide the same package
     # for multiple systems. This is preferable to abstraction libraries.
-    forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux"];
+    forEachSystem = nixpkgs.lib.genAttrs [
+      "x86_64-linux"
+      "aarch64-darwin"
+    ];
   in {
     packages = forEachSystem (system: let
       pkgs = inputs.nixpkgs.legacyPackages.${system};
