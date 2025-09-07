@@ -10,6 +10,12 @@
     vim = {
       languages.go = {
         enable = true;
+        format = {
+          enable = true;
+        };
+        dap = {
+          enable = true;
+        };
       };
     };
   };

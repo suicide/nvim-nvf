@@ -59,7 +59,18 @@
         enableFormat = true;
         enableTreesitter = true;
         enableExtraDiagnostics = true;
+        enableDAP = true;
       };
+
+      debugger = {
+        nvim-dap = {
+          ui = {
+            enable = true;
+            autoStart = true;
+          };
+        };
+      };
+
     };
   };
 }
