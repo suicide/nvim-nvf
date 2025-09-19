@@ -4,7 +4,19 @@
   config,
   options,
   ...
-}: {
+}: let
+  oil-git = pkgs.vimUtils.buildVimPlugin {
+    name = "oil-git";
+    src = pkgs.fetchFromGitHub {
+      owner = "benomahony";
+      repo = "oil-git.nvim";
+      rev = "d1f27a5982df35b70fb842aa6bbfac10735c7265";
+      hash = "sha256-QQj3ck+5GpA/htG0tZzniS5bbfRscvcfXjMUjY8F9A4=";
+    };
+  };
+  useOil-git = true;
+  useOil-git-status = false;
+in {
 
   config = {
     vim = {
@@ -25,7 +37,7 @@
             };
 
             win_options = {
-              signcolumn = "yes:2";
+              signcolumn = lib.mkIf useOil-git-status "yes:2";
             };
 
             keymaps = {
@@ -46,7 +58,12 @@
       ];
 
       extraPlugins = lib.mkIf config.vim.utility.oil-nvim.enable {
-        "oil-git-status" = {
+        "oil-git" = lib.mkIf useOil-git {
+          package = oil-git;
+          after = [ "oil-nvim" ];
+        };
+
+        "oil-git-status" = lib.mkIf useOil-git-status {
           package = pkgs.vimPlugins.oil-git-status-nvim;
           setup = ''
             require("oil-git-status").setup()
@@ -54,6 +71,7 @@
           after = [ "oil-nvim" ];
         };
       };
+
 
 
       filetree = {
