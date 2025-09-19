@@ -48,6 +48,9 @@
           nextDiagnostic = "}}";
           previousDiagnostic = "{{";
           openDiagnosticFloat = "<leader>e";
+
+          codeAction = "<leader>ca";
+          renameSymbol = "<leader>rn";
         };
       };
 
@@ -71,6 +74,15 @@
         };
       };
 
+      keymaps = [
+        {
+          mode = "n";
+          key = "<leader>cl";
+          action = "function() vim.lsp.codelens.run() end";
+          lua = true;
+          desc = "Code Lens";
+        }
+      ];
     };
   };
 }
