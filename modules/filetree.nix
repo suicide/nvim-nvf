@@ -24,6 +24,10 @@
               show_hidden = true;
             };
 
+            win_options = {
+              signcolumn = "yes:2";
+            };
+
             keymaps = {
               "<C-p>" = false; # we want to use telescope file finder instead
               "<M-p>" = "actions.preview";
@@ -40,6 +44,16 @@
           desc = "Oil parent";
         }
       ];
+
+      extraPlugins = lib.mkIf config.vim.utility.oil-nvim.enable {
+        "oil-git-status" = {
+          package = pkgs.vimPlugins.oil-git-status-nvim;
+          setup = ''
+            require("oil-git-status").setup()
+          '';
+          after = [ "oil-nvim" ];
+        };
+      };
 
 
       filetree = {
