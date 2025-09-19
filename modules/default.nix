@@ -23,6 +23,8 @@
     ./autocomplete.nix
     ./format.nix
 
+    ./navigation.nix
+
     ./quickfixlist.nix
 
     ./neotree.nix
