@@ -43,6 +43,25 @@
                   score_offset = 100;
                   async = true;
                 };
+                snippets = {
+                  score_offset = 40;
+                };
+
+                lsp = {
+                  score_offset = 30;
+                };
+                path = {
+                  score_offset = 10;
+                };
+
+                buffer = {
+                  min_keyword_length = 5;
+                  score_offset = 1;
+                };
+                spell = {
+                  min_keyword_length = 5;
+                  score_offset = 1;
+                };
               };
             };
           };
