@@ -26,7 +26,7 @@
         };
       };
 
-      lazy.plugins."neo-tree-nvim".keys = [
+      lazy.plugins."neo-tree-nvim".keys = lib.mkIf config.vim.filetree.neo-tree.enable [
         {
           mode = "n";
           key = "<C-t>";

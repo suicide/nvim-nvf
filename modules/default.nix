@@ -27,7 +27,8 @@
 
     ./quickfixlist.nix
 
-    ./neotree.nix
+    ./filetree.nix
+
     ./gitsigns.nix
     ./undotree.nix
 
