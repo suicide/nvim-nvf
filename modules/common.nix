@@ -66,6 +66,25 @@
       luaConfigRC.common = ''
         vim.opt.shortmess:append("c")
       '';
+
+      keymaps = [
+        {
+          mode = "v";
+          key = ">";
+          action = ">gv";
+          noremap = true;
+          silent = true;
+          desc = "visual indent";
+        }
+        {
+          mode = "v";
+          key = "<";
+          action = "<gv";
+          noremap = true;
+          silent = true;
+          desc = "visual dedent";
+        }
+      ];
     };
   };
 }
