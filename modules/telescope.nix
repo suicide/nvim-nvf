@@ -39,12 +39,12 @@
 
         mappings = {
           diagnostics = "<leader>Q"; # workspace diagnostics
-          lspDefinitions = "<leader>gd";
-          lspTypeDefinitions = "<leader>gD";
-          lspImplementations = "<leader>gi";
-          lspReferences = "<leader>gr";
-          lspDocumentSymbols = "<leader>gs";
-          lspWorkspaceSymbols = "<leader>gS";
+          lspDefinitions = "gd";
+          lspTypeDefinitions = "gD";
+          lspImplementations = "gi";
+          lspReferences = "gr";
+          lspDocumentSymbols = "gs";
+          lspWorkspaceSymbols = "gS";
 
           gitBranches = "<leader>gcb";
           gitBufferCommits = "<leader>ggl";
