@@ -43,13 +43,15 @@
                   score_offset = 100;
                   async = true;
                 };
-                snippets = {
-                  score_offset = 40;
-                };
 
                 lsp = {
+                  score_offset = 50;
+                };
+
+                snippets = {
                   score_offset = 30;
                 };
+
                 path = {
                   score_offset = 10;
                 };
