@@ -16,6 +16,15 @@
           previousHunk = "[[";
         };
       };
+
+      treesitter = {
+        grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [ 
+          git_rebase
+          gitattributes
+          gitcommit
+          gitignore
+        ];
+      };
     };
   };
 }
