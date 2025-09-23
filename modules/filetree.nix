@@ -5,15 +5,6 @@
   options,
   ...
 }: let
-  oil-git = pkgs.vimUtils.buildVimPlugin {
-    name = "oil-git";
-    src = pkgs.fetchFromGitHub {
-      owner = "benomahony";
-      repo = "oil-git.nvim";
-      rev = "d1f27a5982df35b70fb842aa6bbfac10735c7265";
-      hash = "sha256-QQj3ck+5GpA/htG0tZzniS5bbfRscvcfXjMUjY8F9A4=";
-    };
-  };
   useOil-git = true;
   useOil-git-status = false;
 in {
@@ -59,7 +50,7 @@ in {
 
       extraPlugins = lib.mkIf config.vim.utility.oil-nvim.enable {
         "oil-git" = lib.mkIf useOil-git {
-          package = oil-git;
+          package = pkgs.vimPlugins.oil-git-nvim;
           after = [ "oil-nvim" ];
         };
 
