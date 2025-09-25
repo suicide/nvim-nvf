@@ -26,6 +26,8 @@
 
     ./helm.nix
     ./terraform.nix
+
+    ./dap
   ];
 
   config = {
@@ -70,28 +72,6 @@
         config = {
           # virtual_lines = true;
           virtual_text = true;
-        };
-      };
-
-      debugger = {
-        nvim-dap = {
-          ui = {
-            enable = true;
-            autoStart = true;
-          };
-        };
-      };
-
-      extraPlugins = {
-        "nvim-dap-virtual-text" = {
-          package = pkgs.vimPlugins.nvim-dap-virtual-text;
-          after = [ "nvim-dap" ];
-          setup = ''
-            require("nvim-dap-virtual-text").setup({
-              only_first_definition = false,
-              all_references = true,
-            })
-          '';
         };
       };
 
