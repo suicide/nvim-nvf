@@ -5,7 +5,6 @@
   options,
   ...
 }: {
-
   config = {
     vim = {
       autocomplete = {
@@ -64,6 +63,14 @@
                   min_keyword_length = 5;
                   score_offset = 1;
                 };
+              };
+            };
+
+            cmdline = {
+              enabled = true;
+              keymap = {
+                # accept a suggestion in command line, this was missing before
+                "<C-y>" = ["select_and_accept" "fallback"];
               };
             };
           };
