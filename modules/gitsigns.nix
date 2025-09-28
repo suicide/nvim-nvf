@@ -5,7 +5,6 @@
   options,
   ...
 }: {
-
   config = {
     vim = {
       git.gitsigns = {
@@ -14,11 +13,13 @@
         mappings = {
           nextHunk = "]]";
           previousHunk = "[[";
+
+          previewHunk = "<leader>hp";
         };
       };
 
       treesitter = {
-        grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [ 
+        grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
           git_rebase
           gitattributes
           gitcommit
@@ -28,4 +29,3 @@
     };
   };
 }
-
