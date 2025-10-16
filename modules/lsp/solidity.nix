@@ -9,7 +9,9 @@
   config = let
     solcExe = lib.getExe' pkgs.solc "solc";
     solidity_ls = let
-      package = pkgs.vscode-solidity-server;
+      package = pkgs.vscode-solidity-server.overrideAttrs (oldAttrs: {
+        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ lib.optionals pkgs.stdenv.isDarwin [ pkgs.clang_20 ];
+      });
       exe = lib.getExe' package "vscode-solidity-server";
     in {
               # setting solc ?
