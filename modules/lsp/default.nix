@@ -78,6 +78,21 @@
       keymaps = [
         {
           mode = "n";
+          key = "K";
+          action = ''
+            function()
+              vim.lsp.buf.hover {
+                border = "single",
+                max_height = 50,
+                max_width = 160,
+              }
+            end
+          '';
+          lua = true;
+          desc = "Hover documentation";
+        }
+        {
+          mode = "n";
           key = "<leader>cl";
           action = "function() vim.lsp.codelens.run() end";
           lua = true;
