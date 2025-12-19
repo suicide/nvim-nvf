@@ -27,6 +27,8 @@
     ./helm.nix
     ./terraform.nix
 
+    ./just.nix
+
     ./dap
   ];
 
