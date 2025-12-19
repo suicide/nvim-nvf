@@ -18,7 +18,9 @@
           };
         };
 
-        codecompanion-nvim = {
+        codecompanion-nvim = let
+            defaultAdapter = "copilot";
+          in {
           enable = true;
           setupOpts = {
             adapters = lib.mkLuaInline '' 
@@ -56,22 +58,24 @@
                       },
                     })
                   end,
+
                 },
               }
             '';
 
             strategies = {
               chat = {
-                adapter = "gemini";
+                adapter = defaultAdapter;
               };
               inline = {
-                adapter = "gemini";
+                adapter = defaultAdapter;
               };
             };
             display = {
               chat = {
                 auto_scroll = true;
-                show_settings = true;
+                show_settings = false;
+                show_token_count = true;
               };
             };
           };
