@@ -15,7 +15,7 @@
     ./autopairs.nix
     ./comments.nix
 
-    ./assistant.nix
+    ./assistant
 
     ./lsp
     ./diagnostics.nix
