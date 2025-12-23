@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./codecompanion
+    ./mcphub
   ];
 
   config = {};
