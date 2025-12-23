@@ -7,7 +7,7 @@
   ...
 }: {
   config = {
-    vim = {
+    vim = lib.mkIf config.vim.assistant.codecompanion-nvim.enable {
       lazy.plugins = {
         "mcphub.nvim" = {
           package = otherInputs.mcphub-nvim.packages.${pkgs.system}.default;
