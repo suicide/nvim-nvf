@@ -38,7 +38,7 @@
           {
             inherit pkgs;
               extraSpecialArgs = {
-                otherInputs = inputs;
+                flakeInputs = inputs;
               };
 
             modules = [
