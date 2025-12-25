@@ -59,11 +59,6 @@
         };
 
         codecompanion-nvim = {
-          # override npins package defined in nvf with nixpkgs version
-          package = lib.mkForce (pkgs.vimPlugins.codecompanion-nvim.overrideAttrs (old: {
-            # have to change pname
-            pname = "codecompanion-nvim";
-          }));
           # fix commands in codecompanion, TODO: add to upstream
           cmd = ["CodeCompanion" "CodeCompanionChat" "CodeCompanionCmd" "CodeCompanionActions"];
         };
