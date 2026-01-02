@@ -14,6 +14,7 @@
 
     ./autopairs.nix
     ./comments.nix
+    ./surround.nix
 
     ./assistant
 
