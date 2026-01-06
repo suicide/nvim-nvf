@@ -7,6 +7,7 @@
   imports = [
     ./codecompanion
     ./mcphub
+    ./opencode
   ];
 
   config = {};

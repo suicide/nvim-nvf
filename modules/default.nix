@@ -10,6 +10,7 @@
 
   imports = [
     ./common.nix
+    ./snacks.nix
     ./clipboard.nix
 
     ./autopairs.nix
