@@ -46,7 +46,7 @@
 
               # overwrite
               {
-                config.vim = extraConfig;
+                config = extraConfig;
               }
             ];
           }).neovim;
