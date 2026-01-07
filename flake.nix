@@ -10,7 +10,7 @@
       url = "github:ravitemer/mcphub.nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mcphub= {
+    mcphub = {
       url = "github:ravitemer/mcp-hub";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -37,14 +37,16 @@
         (inputs.nvf.lib.neovimConfiguration
           {
             inherit pkgs;
-              extraSpecialArgs = {
-                flakeInputs = inputs;
-              };
+            extraSpecialArgs = {
+              flakeInputs = inputs;
+            };
 
             modules = [
               ./modules/default.nix
 
-              # overwrite
+              # overwrite config from external input
+              # to overwrite nvf config use the `vim` scope.
+              # our own config is scoped at `__cfg`
               {
                 config = extraConfig;
               }
