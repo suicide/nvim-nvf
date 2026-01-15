@@ -19,7 +19,6 @@
 
         highlight = {
           enable = true;
-          additionalVimRegexHighlighting = true;
         };
 
         autotagHtml = true;
