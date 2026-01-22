@@ -5,7 +5,6 @@
   options,
   ...
 }: {
-
   config = {
     vim = {
       telescope = {
@@ -14,10 +13,18 @@
         setupOpts = {
           defaults = {
             path_display = ["truncate"];
+            file_ignore_patterns = lib.mkOptionDefault [
+              "%.direnv/"
+            ];
           };
 
           pickers = {
-            find_files.find_command = ["${pkgs.fd}/bin/fd" "-tf" "--hidden"];
+            find_files.find_command = [
+              "${pkgs.fd}/bin/fd"
+              "-tf"
+              "--hidden"
+              "--no-ignore-vcs"
+            ];
 
             buffers = {
               mappings = {
@@ -74,4 +81,3 @@
     };
   };
 }
-
