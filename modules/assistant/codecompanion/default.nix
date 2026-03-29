@@ -58,7 +58,7 @@
           package = pkgs.vimPlugins.blink-copilot;
         };
 
-        codecompanion-nvim = {
+        codecompanion-nvim = lib.mkIf config.vim.assistant.codecompanion-nvim.enable {
           # fix commands in codecompanion, TODO: add to upstream
           cmd = ["CodeCompanion" "CodeCompanionChat" "CodeCompanionCmd" "CodeCompanionActions"];
         };

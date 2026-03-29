@@ -5,9 +5,20 @@
   options,
   flakeInputs,
   ...
-}: {
+}: let
+  cfg = config.__cfg.codecompanion.mcphub;
+in {
+  options = {
+    __cfg.codecompanion.mcphub = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Enable mcp for codecompanion";
+      };
+    };
+  };
   config = {
-    vim = lib.mkIf config.vim.assistant.codecompanion-nvim.enable {
+    vim = lib.mkIf (cfg.enable && config.vim.assistant.codecompanion-nvim.enable) {
       lazy.plugins = {
         "mcphub.nvim" = {
           package = flakeInputs.mcphub-nvim.packages.${pkgs.stdenv.hostPlatform.system}.default;
