@@ -8,7 +8,7 @@
 
   config = {
     vim = {
-      languages.tailwind = {
+      lsp.presets.tailwindcss-language-server = {
         enable = true;
       };
     };
