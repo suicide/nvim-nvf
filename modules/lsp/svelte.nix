@@ -8,7 +8,7 @@
   config = {
     vim = {
       languages.svelte = {
-        enable = true;
+        enable = false; # disabled until https://github.com/NotAShelf/nvf/pull/1517 is resolved
       };
     };
   };
