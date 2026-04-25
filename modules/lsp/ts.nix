@@ -8,7 +8,7 @@
 
   config = {
     vim = {
-      languages.ts = {
+      languages.typescript = {
         enable = true;
       };
     };
