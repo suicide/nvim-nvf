@@ -4,7 +4,10 @@
   config,
   options,
   ...
-}: {
+}: let
+  dapVisualLua = builtins.readFile ./nvim-dap-visual.lua;
+  dapUiLua = builtins.readFile ./nvim-dap-ui.lua;
+in {
 
   config = {
     vim = {
@@ -30,10 +33,11 @@
         };
       };
 
-      extraLuaFiles = [
-        ./nvim-dap-visual.lua # dap visual customization
-        ./nvim-dap-ui.lua
-      ];
+      luaConfigRC.dap = ''
+        ${dapVisualLua}
+
+        ${dapUiLua}
+      '';
     };
   };
 }
