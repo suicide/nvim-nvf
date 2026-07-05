@@ -11,7 +11,7 @@
       clipboard = {
         enable = true;
 
-        registers = "unnamed,unnamedplus";
+        registers = "";
 
         providers = {
           wl-copy = lib.mkIf pkgs.stdenv.isLinux {
