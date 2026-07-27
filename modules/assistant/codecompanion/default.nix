@@ -21,7 +21,7 @@
         codecompanion-nvim = let
           defaultAdapter = "copilot";
         in {
-          enable = true;
+          enable = false;
           setupOpts = {
             adapters = let
               content = builtins.readFile ./adapters.lua;
