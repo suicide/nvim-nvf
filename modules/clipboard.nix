@@ -14,7 +14,7 @@
         registers = "";
 
         providers = {
-          wl-copy = lib.mkIf pkgs.stdenv.isLinux {
+          wl-copy = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
             enable = true;
           };
         };
