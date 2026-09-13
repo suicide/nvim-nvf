@@ -2,115 +2,121 @@
   lib,
   pkgs,
   config,
-  options,
   ...
 }: {
 
   config = {
     vim = {
 
-      statusline = let
-        activeB = options.vim.statusline.lualine.activeSection.b.default ;
-      in {
+      statusline = {
         lualine = {
           enable = true;
 
-          activeSection.a = [
-            ''
-              {
-               "mode",
-               icons_enabled = true,
-              }
-            ''
-          ];
+          setupOpts = {
+            sections = {
+              lualine_a = map lib.generators.mkLuaInline [
+                ''
+                  {
+                   "mode",
+                   icons_enabled = true,
+                  }
+                ''
+              ];
 
-          activeSection.b = [
-            ''
-              {
-                'branch',
-                -- separator = {right = ''}
-              }
-            ''
-            ''
-              {
-                'diff',
-                -- separator = {right = ''}
-              },
-            ''
-          ];
+              lualine_b = map lib.generators.mkLuaInline [
+                ''
+                  {
+                    'branch',
+                    -- separator = {right = ''}
+                  }
+                ''
+                ''
+                  {
+                    'diff',
+                    -- separator = {right = ''}
+                  },
+                ''
+              ];
 
-          activeSection.c = let
-            firstEntry = builtins.head activeB;
-          in  [
-          firstEntry
-          ''
-            {
-              "filename",
-              path = 1,
-              symbols = {modified = ' ', readonly = ' '},
-              -- separator = {right = ''}
-            }
-          ''
-          ];
+              lualine_c = [
+                {
+                  "@1" = "filetype";
+                  colored = true;
+                  icon_only = true;
+                  icon = {align = "left";};
+                }
+                (lib.generators.mkLuaInline ''
+                  {
+                    "filename",
+                    path = 1,
+                    symbols = {modified = ' ', readonly = ' '},
+                    -- separator = {right = ''}
+                  }
+                '')
+              ];
 
-          activeSection.y = [
-          ''
-            {
-              'encoding',
-              -- separator = {left = ''}
-            }
-          ''
-          ''
-            {
-              "fileformat",
-              -- color = {fg='black'},
-              symbols = {
-                unix = '', -- e712
-                dos = '',  -- e70f
-                mac = '',  -- e711
-              }
-            }
-          ''
-          ];
+              lualine_y = map lib.generators.mkLuaInline [
+                ''
+                  {
+                    'encoding',
+                    -- separator = {left = ''}
+                  }
+                ''
+                ''
+                  {
+                    "fileformat",
+                    -- color = {fg='black'},
+                    symbols = {
+                      unix = '', -- e712
+                      dos = '',  -- e70f
+                      mac = '',  -- e711
+                    }
+                  }
+                ''
+              ];
 
-          activeSection.z = [
-          ''
-            {
-              "progress",
-              -- separator = {left = ''}
-            }
-          ''
-          ''
-            {"location"}
-          ''
-          ];
+              lualine_z = map lib.generators.mkLuaInline [
+                ''
+                  {
+                    "progress",
+                    -- separator = {left = ''}
+                  }
+                ''
+                ''
+                  {"location"}
+                ''
+              ];
+            };
 
-          inactiveSection.c = [
-            ''
-            {
-              'filename',
-              path = 1,
-            }
-            ''
-          ];
+            inactive_sections.lualine_c = map lib.generators.mkLuaInline [
+              ''
+                {
+                  'filename',
+                  path = 1,
+                }
+              ''
+            ];
 
-          sectionSeparator = {
-            left = "";
-            right = "";
-          };
+            options = {
+              section_separators = {
+                left = "";
+                right = "";
+              };
 
-          componentSeparator = {
-            left = "";
-            right = "";
-          };
+              component_separators = {
+                left = "";
+                right = "";
+              };
 
-          # line on each window
-          globalStatus = false;
+              # line on each window
+              globalstatus = false;
 
-          refresh = {
-            statusline = 100;
-            tabline = 100;
-            winbar = 100;
+              refresh = {
+                statusline = 100;
+                tabline = 100;
+                winbar = 100;
+              };
+            };
           };
         };
       };
