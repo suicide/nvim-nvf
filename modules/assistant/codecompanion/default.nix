@@ -4,12 +4,27 @@
   config,
   options,
   ...
-}: {
+}: let
+  # copilot.lua (as pinned by nvf) downloads the native language server at
+  # runtime and extracts it with `unzip`, which is not available in the wrapped
+  # Neovim's PATH. Point it at the nixpkgs-packaged server instead. The package
+  # is unfree, so pull it from a scoped nixpkgs instance that only permits it.
+  copilotLanguageServer =
+    (import pkgs.path {
+      inherit (pkgs.stdenv.hostPlatform) system;
+      config.allowUnfreePredicate = pkg: lib.getName pkg == "copilot-language-server";
+    }).copilot-language-server;
+in {
   config = {
     vim = {
       assistant = {
         copilot = {
           enable = true;
+
+          setupOpts.server = {
+            type = "binary";
+            custom_server_filepath = lib.getExe copilotLanguageServer;
+          };
 
           mappings = {
             panel = {
@@ -52,6 +67,8 @@
           };
         };
       };
+
+      extraPackages = [copilotLanguageServer];
 
       lazy.plugins = {
         blink-copilot = {
