@@ -30,6 +30,18 @@
         }
       '';
     };
+    # nixpkgs' `cargoSetupHook` forces system libraries, but the `foundry`
+    # derivation does not provide them, so `aws-lc-sys` and `zstd-sys` fail to
+    # build. Add the missing inputs, mirroring the upstream fix, until it lands.
+    # See https://github.com/NixOS/nixpkgs/pull/587157
+    forgePkg = pkgs.foundry.overrideAttrs (old: {
+      buildInputs = (old.buildInputs or []) ++ [
+        pkgs.aws-lc
+        pkgs.rust-jemalloc-sys
+        pkgs.sqlite
+        pkgs.zstd
+      ];
+    });
     solc = let
       exe = solcExe;
     in {
@@ -58,7 +70,7 @@
           formatters_by_ft.solidity = ["forge_fmt"];
 
           formatters.forge_fmt = {
-            command = lib.getExe' pkgs.foundry "forge";
+            command = lib.getExe' forgePkg "forge";
           };
         };
       };
